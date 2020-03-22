@@ -79,8 +79,8 @@ void circle_list::plus(const monom & tmp) {
 		}
 		last = last->get_nxt();
 	}
-	last = head->get_nxt();
-	while (last != head) {
+	last = head;
+	while (last->get_nxt() != head) {
 		if (last->get_nxt()->get_sv() < tmp.get_sv()) {
 			monom* kek = new monom(tmp);
 			kek->set_nxt(last->get_nxt());
@@ -165,4 +165,19 @@ string circle_list::to_string(int max_step, int n) {
 		last = last->get_nxt();
 	}
 	return ans;
+}
+
+circle_list circle_list::mult(const circle_list & _1, int max_step, int n) {
+	circle_list res;
+	monom* last_1 = head->get_nxt();
+	while (last_1 != head) {
+		monom* last_2 = _1.head->get_nxt();
+		while (last_2 != _1.head) {
+			monom ans = last_1->mult(*last_2, max_step, n);
+			res.plus(ans);
+			last_2 = last_2->get_nxt();
+		}
+		last_1 = last_1->get_nxt();
+	}
+	return res;
 }
