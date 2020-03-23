@@ -135,7 +135,7 @@ monom& monom::operator=(const monom& kek){
 
 string monom::calc_monom(int max_step, int n){
 	if (sv == -1) {
-		return "0";
+		return "+0";
 	}
 	string ans;
 	int* pw = new int[n];
@@ -149,5 +149,7 @@ string monom::calc_monom(int max_step, int n){
 		if (pw[i] == 1) continue;
 		ans += '^' + to_string(pw[i]);
 	}
+	if (ans.back() == '+') ans += '1';
+	if (ans.size() == 0) ans += '0';
 	return ans;
 }

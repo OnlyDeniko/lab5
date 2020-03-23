@@ -89,6 +89,7 @@ void circle_list::plus(const monom & tmp) {
 		}
 		last = last->get_nxt();
 	}
+	
 	monom* kek = new monom(tmp);
 	kek->set_nxt(head);
 	last->set_nxt(kek);
@@ -154,6 +155,19 @@ circle_list circle_list::operator*(double kek) {
 		last->set_k(last->get_k() * kek);
 		last = last->get_nxt();
 	}
+	while (1) {//чистим цикличееский список от возможных мономов с нулевыми коэффициентами
+		last = res.head->get_nxt();
+		int ok = 1;
+		while (last != res.head) {
+			if (last->get_k() == 0) {
+				res.erase(*last);
+				ok = 0;
+				break;
+			}
+			last = last->get_nxt();
+		}
+		if (ok) break;
+	}
 	return res;
 }
 
@@ -164,6 +178,7 @@ string circle_list::to_string(int max_step, int n) {
 		ans += last->calc_monom(max_step, n);
 		last = last->get_nxt();
 	}
+	if (ans.size() == 0) ans += "+0";
 	return ans;
 }
 
