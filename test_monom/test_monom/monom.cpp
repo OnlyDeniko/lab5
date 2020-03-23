@@ -1,6 +1,7 @@
 #include "monom.h"
 #include<string>
 #include<iostream>
+#include<algorithm>
 
 #define deb(a) cout << #a << " = " << a << endl;
 
@@ -56,6 +57,7 @@ long long monom::calc_sv(string s, int max_step, int n){
 		res += gg * pw[i];
 		gg *= max_step;
 	}
+	res = std::max(-1ll, res);
 	return res;
 }
 

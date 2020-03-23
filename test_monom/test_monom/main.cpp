@@ -56,6 +56,6 @@ void tester_circle_list() {
 int main() {
 	setlocale(LC_ALL, "Rus");
 	tester_circle_list();
-
+	
 	return 0;
 }

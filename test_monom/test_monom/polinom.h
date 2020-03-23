@@ -14,10 +14,11 @@ public:
 	~polinom() {};
 	polinom &operator=(const polinom & tmp);
 	void add(const monom & tmp);
+	void erase(const monom & tmp);
 	polinom operator+(const polinom & tmp);
 	polinom operator-(const polinom & tmp);
 	polinom operator*(double kk);
-	polinom mult(const polinom & _1);
+	polinom operator*(const polinom & tmp);
 	int get_cnt() const {
 		return cnt;
 	}

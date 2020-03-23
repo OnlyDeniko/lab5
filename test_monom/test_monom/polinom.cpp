@@ -33,8 +33,10 @@ void polinom::get_words_diff_razdel(string st, string zn, string * w, int & k) {
 polinom::polinom(string _s, int _cnt, int _max_step) {
 	cnt = _cnt;
 	max_step = _max_step;
+	if (_s.size() == 0) return;
 	int sz_w = 0;
 	string * w = processing_string(_s, sz_w);
+	
 	for (int i = 0; i < sz_w; i++) {
 		monom tmp(w[i], max_step, cnt);
 		CL.plus(tmp);
@@ -59,6 +61,10 @@ void polinom::add(const monom & tmp) {
 	CL.plus(tmp);
 }
 
+void polinom::erase(const monom & tmp) {
+	CL.minus(tmp);
+}
+
 polinom polinom::operator+(const polinom & tmp) {
 	polinom res(*this);
 	res.CL = res.CL + tmp.CL;
@@ -77,9 +83,9 @@ polinom polinom::operator*(double kk) {
 	return res;
 }
 
-polinom polinom::mult(const polinom & _1) {
+polinom polinom::operator*(const polinom & tmp) {
 	polinom res(*this);
-	res.CL = res.CL.mult(_1.CL, max_step, cnt);
+	res.CL = res.CL.mult(tmp.CL, max_step, cnt);
 	return res;
 }
 

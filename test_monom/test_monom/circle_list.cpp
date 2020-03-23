@@ -60,6 +60,7 @@ circle_list & circle_list::operator=(const circle_list & tmp) {
 }
 
 void circle_list::plus(const monom & tmp) {
+	if (tmp.get_sv() == -1 || tmp.get_k() == 0) return;
 	if (head->get_nxt() == head) {
 		monom* kek = new monom(tmp);
 		kek->set_nxt(head);
@@ -89,7 +90,7 @@ void circle_list::plus(const monom & tmp) {
 		}
 		last = last->get_nxt();
 	}
-	
+
 	monom* kek = new monom(tmp);
 	kek->set_nxt(head);
 	last->set_nxt(kek);
