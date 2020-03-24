@@ -168,6 +168,7 @@ namespace finalprojectWF {
 			this->polinom1_text_box->Location = System::Drawing::Point(83, 176);
 			this->polinom1_text_box->Margin = System::Windows::Forms::Padding(4);
 			this->polinom1_text_box->Name = L"polinom1_text_box";
+			this->polinom1_text_box->ReadOnly = true;
 			this->polinom1_text_box->Size = System::Drawing::Size(718, 26);
 			this->polinom1_text_box->TabIndex = 6;
 			// 
@@ -176,6 +177,7 @@ namespace finalprojectWF {
 			this->polinom2_text_box->Location = System::Drawing::Point(83, 338);
 			this->polinom2_text_box->Margin = System::Windows::Forms::Padding(4);
 			this->polinom2_text_box->Name = L"polinom2_text_box";
+			this->polinom2_text_box->ReadOnly = true;
 			this->polinom2_text_box->Size = System::Drawing::Size(718, 26);
 			this->polinom2_text_box->TabIndex = 7;
 			// 
@@ -234,6 +236,7 @@ namespace finalprojectWF {
 			// 
 			this->res_text_box->Location = System::Drawing::Point(83, 460);
 			this->res_text_box->Name = L"res_text_box";
+			this->res_text_box->ReadOnly = true;
 			this->res_text_box->Size = System::Drawing::Size(718, 26);
 			this->res_text_box->TabIndex = 13;
 			// 
